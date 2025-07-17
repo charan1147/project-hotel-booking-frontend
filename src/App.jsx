@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import {
   BrowserRouter as Router,
@@ -128,7 +129,6 @@ function App() {
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      
     </Router>
   );
 }
