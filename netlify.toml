@@ -1,4 +1,4 @@
 [[redirects]]
 from = "/api/*"
-to = "https://project-hotel-bookings-3.onrender.com/api/:splat"
+to = "https://project-hotel-bookings-7.onrender.com/api/:splat"
 status = 200
