@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://project-hotel-bookings-5.onrender.com",
+  baseURL: "https://project-hotel-bookings-6.onrender.com",
   withCredentials: true,
 });
 
