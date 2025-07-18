@@ -1,5 +1,5 @@
-import React from "react";
-import { useContext } from "react";
+// App.js
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,30 +16,28 @@ import BookRoom from "./users/pages/BookingForm";
 import Rooms from "./users/pages/Room";
 import Login from "./shared/Login";
 import Register from "./shared/Register";
+import ProtectedRoute from "./context/ProtectedRoute";
 
 function App() {
   const { isAuthenticated, user, initialized } = useContext(AuthContext);
 
-  if (!initialized) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  }
+  if (!initialized) return <div>Loading...</div>;
 
   return (
     <Router>
       <Routes>
+        {/* Public Routes */}
         <Route
           path="/login"
           element={
             isAuthenticated ? (
-              user?.role === "admin" ? (
-                <Navigate to="/admin/dashboard" />
-              ) : (
-                <Navigate to="/user/dashboard" />
-              )
+              <Navigate
+                to={
+                  user?.role === "admin"
+                    ? "/admin/dashboard"
+                    : "/user/dashboard"
+                }
+              />
             ) : (
               <Login />
             )
@@ -49,79 +47,91 @@ function App() {
           path="/register"
           element={
             isAuthenticated ? (
-              user?.role === "admin" ? (
-                <Navigate to="/admin/dashboard" />
-              ) : (
-                <Navigate to="/user/dashboard" />
-              )
+              <Navigate
+                to={
+                  user?.role === "admin"
+                    ? "/admin/dashboard"
+                    : "/user/dashboard"
+                }
+              />
             ) : (
               <Register />
             )
           }
         />
+
+        {/* User Routes */}
         <Route
           path="/user/dashboard"
           element={
-            isAuthenticated && user?.role === "user" ? (
+            <ProtectedRoute requiredRole="user">
               <UserDashboard />
-            ) : (
-              <Navigate to="/login" />
-            )
+            </ProtectedRoute>
           }
         />
         <Route
           path="/user/book-room"
           element={
-            isAuthenticated && user?.role === "user" ? (
+            <ProtectedRoute requiredRole="user">
               <BookRoom />
-            ) : (
-              <Navigate to="/login" />
-            )
+            </ProtectedRoute>
           }
         />
         <Route
           path="/user/rooms"
           element={
-            isAuthenticated && user?.role === "user" ? (
+            <ProtectedRoute requiredRole="user">
               <Rooms />
-            ) : (
-              <Navigate to="/login" />
-            )
+            </ProtectedRoute>
           }
         />
         <Route
           path="/user/bookings"
           element={
-            isAuthenticated && user?.role === "user" ? (
+            <ProtectedRoute requiredRole="user">
               <BookingList isAdmin={false} />
-            ) : (
-              <Navigate to="/login" />
-            )
+            </ProtectedRoute>
           }
         />
+
+        {/* Admin Routes */}
         <Route
           path="/admin/dashboard"
           element={
-            isAuthenticated && user?.role === "admin" ? (
+            <ProtectedRoute requiredRole="admin">
               <AdminDashboard />
-            ) : (
-              <Navigate to="/login" />
-            )
+            </ProtectedRoute>
           }
-        >
-          <Route index element={<Navigate to="bookings" />} />
-          <Route path="bookings" element={<Bookings />} />
-          <Route path="rooms" element={<ManageRooms />} />
-        </Route>
+        />
+        <Route
+          path="/admin/dashboard/bookings"
+          element={
+            <ProtectedRoute requiredRole="admin">
+              <Bookings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/dashboard/rooms"
+          element={
+            <ProtectedRoute requiredRole="admin">
+              <ManageRooms />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Default & Fallback */}
         <Route
           path="/"
           element={
             isAuthenticated ? (
-              user?.role === "admin" ? (
-                <Navigate to="/admin/dashboard" />
-              ) : (
-                <Navigate to="/user/dashboard" />
-              )
+              <Navigate
+                to={
+                  user?.role === "admin"
+                    ? "/admin/dashboard"
+                    : "/user/dashboard"
+                }
+              />
             ) : (
               <Navigate to="/login" />
             )
@@ -134,3 +144,4 @@ function App() {
 }
 
 export default App;
+
