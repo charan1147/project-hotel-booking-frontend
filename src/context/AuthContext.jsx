@@ -32,52 +32,56 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // Login user
-  const loginUser = async (userData) => {
-    try {
-      setAuthLoading(true);
-      const res = await api.post("/api/user/login", userData);
-      setUser(res.data.user);
-      setIsAuthenticated(true);
-      setAuthError(null);
-      return true;
-    } catch (err) {
-      setAuthError(err.response?.data?.message || "Login failed");
-      return false;
-    } finally {
-      setAuthLoading(false);
-    }
-  };
+const loginUser = async (userData) => {
+  try {
+    setAuthLoading(true);
+    const res = await api.post("/api/user/login", userData);
+    localStorage.setItem("token", res.data.token); // 🔐 Save token here
+    setUser(res.data.user);
+    setIsAuthenticated(true);
+    setAuthError(null);
+    return true;
+  } catch (err) {
+    setAuthError(err.response?.data?.message || "Login failed");
+    return false;
+  } finally {
+    setAuthLoading(false);
+  }
+};
 
-  // Register user
-  const registerUser = async (userData) => {
-    try {
-      setAuthLoading(true);
-      const res = await api.post("/api/user/register", userData);
-      setUser(res.data.user);
-      setIsAuthenticated(true);
-      setAuthError(null);
-      return true;
-    } catch (err) {
-      setAuthError(err.response?.data?.message || "Registration failed");
-      return false;
-    } finally {
-      setAuthLoading(false);
-    }
-  };
+const registerUser = async (userData) => {
+  try {
+    setAuthLoading(true);
+    const res = await api.post("/api/user/register", userData);
+    localStorage.setItem("token", res.data.token); // 🔐 Save token here too
+    setUser(res.data.user);
+    setIsAuthenticated(true);
+    setAuthError(null);
+    return true;
+  } catch (err) {
+    setAuthError(err.response?.data?.message || "Registration failed");
+    return false;
+  } finally {
+    setAuthLoading(false);
+  }
+};
 
-  // Logout user
-  const logoutUser = async () => {
-    try {
-      setAuthLoading(true);
-      await api.post("/api/user/logout");
-    } catch (err) {
-      setAuthError(err.response?.data?.message || "Logout failed");
-    } finally {
-      setUser(null);
-      setIsAuthenticated(false);
-      setAuthLoading(false);
-    }
-  };
+
+
+const logoutUser = async () => {
+  try {
+    setAuthLoading(true);
+    await api.post("/api/user/logout");
+  } catch (err) {
+    setAuthError(err.response?.data?.message || "Logout failed");
+  } finally {
+    localStorage.removeItem("token"); // 🧹 Clear token on logout
+    setUser(null);
+    setIsAuthenticated(false);
+    setAuthLoading(false);
+  }
+};
+
 
   // Delete user account
   const deleteAccount = async () => {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://project-hotel-bookings-8.onrender.com",
+  baseURL: "https://project-hotel-bookings-9.onrender.com",
  
 });
 api.interceptors.request.use(
