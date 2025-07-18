@@ -1,61 +1,30 @@
-import { useEffect, useContext } from "react";
+import { useContext, useEffect } from "react";
 import { RoomContext } from "../../context/RoomContext";
 
-function RoomList() {
-  const {
-    rooms,
-    roomsLoading,
-    roomsError,
-    fetchRooms,
-    deleteRoom,
-    clearRoomError,
-  } = useContext(RoomContext);
+const RoomList = () => {
+  const { rooms, fetchRooms, deleteRoom, roomsLoading } =
+    useContext(RoomContext);
 
   useEffect(() => {
     fetchRooms();
+  }, [fetchRooms]);
 
-    return () => {
-      clearRoomError();
-    };
-  }, []);
-
-  const handleDelete = async (id) => {
-    await deleteRoom(id);
-    await fetchRooms();
-  };
+  if (roomsLoading) return <p>Loading...</p>;
 
   return (
     <div>
       <h3>Room List</h3>
-
-      {roomsLoading && <p>Loading rooms...</p>}
-      {roomsError && <p>{roomsError}</p>}
-
-      {!roomsLoading && !roomsError && (
-        <>
-          {rooms.length === 0 ? (
-            <p>No rooms found.</p>
-          ) : (
-            rooms.map((room) => (
-              <div key={room._id}>
-                <p>Name: {room.name}</p>
-                <p>Number: {room.number}</p>
-                <p>Price: ${room.price}</p>
-                <p>Description: {room.description}</p>
-                <p>Status: {room.status}</p>
-                <button
-                  onClick={() => handleDelete(room._id)}
-                  disabled={roomsLoading}
-                >
-                  Delete
-                </button>
-              </div>
-            ))
-          )}
-        </>
-      )}
+      <ul>
+        {rooms.map((room) => (
+          <li key={room._id}>
+            {room.name} - {room.type} - ₹{room.price} - Capacity:{" "}
+            {room.capacity}
+            <button onClick={() => deleteRoom(room._id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default RoomList;
