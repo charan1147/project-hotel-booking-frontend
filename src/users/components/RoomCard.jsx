@@ -2,26 +2,34 @@ import { Link } from "react-router-dom";
 
 function RoomCard({ room }) {
   return (
-    <div>
-      <p>
-        <strong>Name:</strong> {room.name}
-      </p>
-      <p>
-        <strong>Number:</strong> {room.number}
-      </p>
-      <p>
-        <strong>Price:</strong> ${room.price}
-      </p>
-      <p>
-        <strong>Description:</strong> {room.description}
-      </p>
-      <p>
-        <strong>Status:</strong> {room.status}
-      </p>
-
-      {room.status === "available" && (
-        <Link to={`/user/book-room?roomId=${room._id}`}>Book Now</Link>
-      )}
+    <div className="card h-100">
+      <div className="card-body">
+        <h5 className="card-title">{room.name}</h5>
+        <p className="card-text">
+          <strong>Number:</strong> {room.number}
+          <br />
+          <strong>Price:</strong> ${room.price}
+          <br />
+          <strong>Description:</strong> {room.description}
+          <br />
+          <strong>Status:</strong>{" "}
+          <span
+            className={`badge ${
+              room.status === "available" ? "bg-success" : "bg-secondary"
+            }`}
+          >
+            {room.status}
+          </span>
+        </p>
+        {room.status === "available" && (
+          <Link
+            to={`/user/book-room?roomId=${room._id}`}
+            className="btn btn-primary mt-2"
+          >
+            Book Now
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

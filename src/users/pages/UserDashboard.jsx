@@ -16,29 +16,39 @@ function UserDashboard() {
 
   if (authLoading) {
     return (
-      <div style={{ textAlign: "center", padding: "50px" }}>
-        <div
-          className="spinner"
-          style={
-            {
-              /* Add CSS for spinner */
-            }
-          }
-        />
-        <p>Loading...</p>
+      <div className="d-flex flex-column align-items-center justify-content-center py-5">
+        <div className="spinner-border text-primary mb-3" role="status" />
+        <p className="text-muted">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1>Welcome, {user?.name}!</h1>
-      {authError && <p style={{ color: "red" }}>{authError}</p>}
-      <div>
-        <button onClick={() => navigate("/user/rooms")}>View Rooms</button>
-        <button onClick={() => navigate("/user/book-room")}>Book a Room</button>
-        <button onClick={() => navigate("/user/bookings")}>My Bookings</button>
-        <button onClick={handleLogout}>Logout</button>
+    <div className="container py-4">
+      <h1 className="mb-4">Welcome, {user?.name}!</h1>
+      {authError && <p className="text-danger">{authError}</p>}
+      <div className="d-flex flex-wrap gap-3">
+        <button
+          className="btn btn-outline-primary"
+          onClick={() => navigate("/user/rooms")}
+        >
+          View Rooms
+        </button>
+        <button
+          className="btn btn-outline-success"
+          onClick={() => navigate("/user/book-room")}
+        >
+          Book a Room
+        </button>
+        <button
+          className="btn btn-outline-info"
+          onClick={() => navigate("/user/bookings")}
+        >
+          My Bookings
+        </button>
+        <button className="btn btn-outline-danger" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );

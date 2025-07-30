@@ -32,45 +32,77 @@ function RoomForm() {
   };
 
   return (
-    <div>
-      <h3>Add New Room</h3>
-      {roomsError && <p>{roomsError}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Room Name"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Price"
-          value={formData.price}
-          onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-          required
-          min="1"
-        />
-        <input
-          type="text"
-          placeholder="Description"
-          value={formData.description}
-          onChange={(e) =>
-            setFormData({ ...formData, description: e.target.value })
-          }
-          required
-        />
-        <input
-          type="number"
-          placeholder="Room Number"
-          value={formData.number}
-          onChange={(e) => setFormData({ ...formData, number: e.target.value })}
-          required
-          min="1"
-        />
-        <button type="submit" disabled={roomsLoading}>
-          {roomsLoading ? "Adding Room..." : "Add Room"}
-        </button>
+    <div className="mb-4">
+      <h3 className="mb-3">Add New Room</h3>
+
+      {roomsError && (
+        <div className="alert alert-danger" role="alert">
+          {roomsError}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="row g-3">
+        <div className="col-md-6">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Room Name"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            required
+          />
+        </div>
+
+        <div className="col-md-6">
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Price"
+            value={formData.price}
+            onChange={(e) =>
+              setFormData({ ...formData, price: e.target.value })
+            }
+            required
+            min="1"
+          />
+        </div>
+
+        <div className="col-md-12">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Description"
+            value={formData.description}
+            onChange={(e) =>
+              setFormData({ ...formData, description: e.target.value })
+            }
+            required
+          />
+        </div>
+
+        <div className="col-md-6">
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Room Number"
+            value={formData.number}
+            onChange={(e) =>
+              setFormData({ ...formData, number: e.target.value })
+            }
+            required
+            min="1"
+          />
+        </div>
+
+        <div className="col-12">
+          <button
+            type="submit"
+            className="btn btn-success"
+            disabled={roomsLoading}
+          >
+            {roomsLoading ? "Adding Room..." : "Add Room"}
+          </button>
+        </div>
       </form>
     </div>
   );

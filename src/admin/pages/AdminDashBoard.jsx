@@ -7,10 +7,18 @@ function AdminDashboard() {
   const { user, isAuthenticated, initialized, logoutUser } =
     useContext(AuthContext);
 
-if (!initialized) {
-  return <p style={{ textAlign: "center" }}>Loading...</p>;
-}
+  if (!initialized) {
+    return (
+      <div className="d-flex justify-content-center align-items-center py-5">
+        <div className="spinner-border text-primary" role="status" />
+        <span className="ms-3 text-muted">Loading...</span>
+      </div>
+    );
+  }
 
+  if (!isAuthenticated || user?.role !== "admin") {
+    return null;
+  }
 
   const handleLogout = async () => {
     try {
@@ -21,29 +29,31 @@ if (!initialized) {
     }
   };
 
-  if (!initialized) {
-    return (
-      <div style={{ textAlign: "center", padding: "50px" }}>Loading...</div>
-    );
-  }
-
-  if (!isAuthenticated || user?.role !== "admin") {
-    return null;
-  }
-
   return (
-    <div>
-      <div
-        style={{ marginBottom: "20px", display: "flex", gap: "10px" }}
-        className="dashboard-nav"
-      >
-        <span>Welcome, {user?.name} (Admin)</span>
-        <Link to="/admin/dashboard/bookings">Bookings</Link>
-        <Link to="/admin/dashboard/rooms">Manage Rooms</Link>
-        <button onClick={handleLogout}>Logout</button>
+    <div className="container py-4">
+      <div className="d-flex flex-wrap align-items-center gap-3 mb-4">
+        <span className="fw-bold">Welcome, {user?.name} (Admin)</span>
+        <Link
+          to="/admin/dashboard/bookings"
+          className="btn btn-outline-primary"
+        >
+          Bookings
+        </Link>
+        <Link to="/admin/dashboard/rooms" className="btn btn-outline-secondary">
+          Manage Rooms
+        </Link>
+        <button onClick={handleLogout} className="btn btn-outline-danger">
+          Logout
+        </button>
       </div>
+
       <Suspense
-        fallback={<p style={{ textAlign: "center" }}>Loading content...</p>}
+        fallback={
+          <div className="d-flex justify-content-center align-items-center py-5">
+            <div className="spinner-border text-secondary" role="status" />
+            <span className="ms-3 text-muted">Loading content...</span>
+          </div>
+        }
       >
         <Outlet />
       </Suspense>

@@ -3,9 +3,11 @@ import RoomList from "../components/RoomList";
 
 function ManageRooms() {
   return (
-    <div>
-      <h2>Manage Rooms</h2>
-      <RoomForm />
+    <div className="container py-4">
+      <h2 className="mb-4">Manage Rooms</h2>
+      <div className="mb-5">
+        <RoomForm />
+      </div>
       <RoomList />
     </div>
   );

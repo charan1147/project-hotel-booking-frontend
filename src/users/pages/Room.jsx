@@ -7,23 +7,45 @@ function Rooms() {
     useContext(RoomContext);
 
   useEffect(() => {
-    fetchRooms(); 
+    fetchRooms();
 
     return () => {
-      clearRoomError(); 
+      clearRoomError();
     };
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center py-5">
+        <div className="spinner-border text-primary" role="status" />
+        <span className="ms-3 text-muted">Loading rooms...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="alert alert-danger text-center" role="alert">
+        {error}
+      </div>
+    );
+  }
 
   return (
-    <div>
-      <h2>Available Rooms</h2>
+    <div className="container py-4">
+      <h2 className="mb-4">Available Rooms</h2>
       {rooms.length === 0 ? (
-        <p>No rooms found.</p>
+        <div className="alert alert-warning text-center" role="alert">
+          No rooms found.
+        </div>
       ) : (
-        rooms.map((room) => <RoomCard key={room._id} room={room} />)
+        <div className="row">
+          {rooms.map((room) => (
+            <div key={room._id} className="col-md-4 mb-4">
+              <RoomCard room={room} />
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
