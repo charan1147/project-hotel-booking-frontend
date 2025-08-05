@@ -98,7 +98,7 @@ function AdminDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold">John D.</span>
+              <span className="ml-2 font-semibold"><Nihanth></Nihanth></span>
             </div>
             <p className="text-gray-600">
               "The booking system was seamless, and the staff handled our
@@ -108,7 +108,7 @@ function AdminDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★☆</div>
-              <span className="ml-2 font-semibold">Sarah M.</span>
+              <span className="ml-2 font-semibold">vamsi</span>
             </div>
             <p className="text-gray-600">
               "Great experience overall, but could use more frequent updates on
@@ -118,7 +118,7 @@ function AdminDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold">Emily R.</span>
+              <span className="ml-2 font-semibold">surya</span>
             </div>
             <p className="text-gray-600">
               "The admin portal made managing our group booking so easy.

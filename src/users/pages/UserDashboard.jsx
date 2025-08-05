@@ -100,7 +100,7 @@ function UserDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold">John D.</span>
+              <span className="ml-2 font-semibold"><Nihanth></Nihanth></span>
             </div>
             <p className="text-gray-600">
               "Amazing stay! The rooms were clean, and the staff was incredibly
@@ -110,7 +110,7 @@ function UserDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★☆</div>
-              <span className="ml-2 font-semibold">Sarah M.</span>
+              <span className="ml-2 font-semibold">vamsi</span>
             </div>
             <p className="text-gray-600">
               "Great facilities and convenient booking process. Will definitely
@@ -120,7 +120,7 @@ function UserDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold">Emily R.</span>
+              <span className="ml-2 font-semibold">surya</span>
             </div>
             <p className="text-gray-600">
               "The lounge area was so relaxing, and the service was top-notch.
