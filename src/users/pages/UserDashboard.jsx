@@ -56,7 +56,7 @@ function UserDashboard() {
         <div className="facility-grid">
           <div className="facility-card">
             <img
-              src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
+              src="https://short-link.me/1a5p0"
               alt="Luxury Room"
               className="facility-image"
             />
@@ -82,7 +82,7 @@ function UserDashboard() {
           </div>
           <div className="facility-card">
             <img
-              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
+              src="https://short-link.me/15IEe"
               alt="Lounge Area"
               className="facility-image"
             />

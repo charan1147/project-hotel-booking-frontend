@@ -49,7 +49,7 @@ function AdminDashboard() {
         <div className="facility-grid">
           <div className="facility-card">
             <img
-              src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
+              src="https://short-link.me/1a5p0"
               alt="Luxury Room"
               className="facility-image"
             />
@@ -62,7 +62,7 @@ function AdminDashboard() {
           </div>
           <div className="facility-card">
             <img
-              src="https://images.unsplash.com/photo-1578683014728-c73504a285f9"
+              src="https://plus.unsplash.com/premium_photo-1681487144031-d502ea9abefc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVldGluZyUyMHJvb218ZW58MHx8MHx8fDA%3D"
               alt="Conference Room"
               className="facility-image"
             />
@@ -75,7 +75,7 @@ function AdminDashboard() {
           </div>
           <div className="facility-card">
             <img
-              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
+              src="https://short-link.me/15IEe"
               alt="Lounge Area"
               className="facility-image"
             />
