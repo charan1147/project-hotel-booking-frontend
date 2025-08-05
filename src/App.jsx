@@ -16,6 +16,7 @@ import Rooms from "./users/pages/Room";
 import Login from "./shared/Login";
 import Register from "./shared/Register";
 import ProtectedRoute from "./context/ProtectedRoute";
+import "./App.css"
 
 function App() {
   const { isAuthenticated, user, initialized } = useContext(AuthContext);

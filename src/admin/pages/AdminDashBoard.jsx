@@ -9,9 +9,9 @@ function AdminDashboard() {
 
   if (!initialized) {
     return (
-      <div className="d-flex justify-content-center align-items-center py-5">
-        <div className="spinner-border text-primary" role="status" />
-        <span className="ms-3 text-muted">Loading...</span>
+      <div className="loading-container">
+        <div className="spinner" />
+        <span className="loading-text">Loading...</span>
       </div>
     );
   }
@@ -30,61 +30,58 @@ function AdminDashboard() {
   };
 
   return (
-    <div className="container py-4">
-      <div className="d-flex flex-wrap align-items-center gap-3 mb-4">
-        <span className="fw-bold">Welcome, {user?.name} (Admin)</span>
-        <Link
-          to="/admin/dashboard/bookings"
-          className="btn btn-outline-primary"
-        >
+    <div className="container">
+      <div className="header-group">
+        <span className="welcome-text">Welcome, {user?.name} (Admin)</span>
+        <Link to="/admin/dashboard/bookings" className="button button-primary">
           Bookings
         </Link>
-        <Link to="/admin/dashboard/rooms" className="btn btn-outline-secondary">
+        <Link to="/admin/dashboard/rooms" className="button button-secondary">
           Manage Rooms
         </Link>
-        <button onClick={handleLogout} className="btn btn-outline-danger">
+        <button className="button button-danger" onClick={handleLogout}>
           Logout
         </button>
       </div>
 
-      <section className="mb-5">
-        <h2 className="text-2xl font-bold mb-3">Facility Overview</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="rounded-lg overflow-hidden shadow-md">
+      <section className="facilities-section">
+        <h2 className="section-title">Facility Overview</h2>
+        <div className="facility-grid">
+          <div className="facility-card">
             <img
               src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
               alt="Luxury Room"
-              className="w-full h-32 object-cover"
+              className="facility-image"
             />
-            <div className="p-4">
-              <h3 className="font-semibold">Luxury Suite</h3>
-              <p className="text-gray-600">
+            <div className="facility-content">
+              <h3 className="facility-title">Luxury Suite</h3>
+              <p className="facility-description">
                 Monitor availability and pricing for premium suites.
               </p>
             </div>
           </div>
-          <div className="rounded-lg overflow-hidden shadow-md">
+          <div className="facility-card">
             <img
               src="https://images.unsplash.com/photo-1578683014728-c73504a285f9"
               alt="Conference Room"
-              className="w-full h-32 object-cover"
+              className="facility-image"
             />
-            <div className="p-4">
-              <h3 className="font-semibold">Conference Room</h3>
-              <p className="text-gray-600">
+            <div className="facility-content">
+              <h3 className="facility-title">Conference Room</h3>
+              <p className="facility-description">
                 Manage bookings for business events.
               </p>
             </div>
           </div>
-          <div className="rounded-lg overflow-hidden shadow-md">
+          <div className="facility-card">
             <img
               src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
               alt="Lounge Area"
-              className="w-full h-32 object-cover"
+              className="facility-image"
             />
-            <div className="p-4">
-              <h3 className="font-semibold">Lounge Area</h3>
-              <p className="text-gray-600">
+            <div className="facility-content">
+              <h3 className="facility-title">Lounge Area</h3>
+              <p className="facility-description">
                 Oversee maintenance and guest access.
               </p>
             </div>
@@ -92,35 +89,35 @@ function AdminDashboard() {
         </div>
       </section>
 
-      <section className="mb-5">
-        <h2 className="text-2xl font-bold mb-3">Recent Guest Feedback</h2>
-        <div className="space-y-4">
-          <div className="p-4 border rounded-lg shadow-sm">
-            <div className="flex items-center mb-2">
-              <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold">John D.</span>
+      <section className="reviews-section">
+        <h2 className="section-title">Recent Guest Feedback</h2>
+        <div className="review-list">
+          <div className="review-card">
+            <div className="review-header">
+              <div className="stars">★★★★★</div>
+              <span className="reviewer-name">John D.</span>
             </div>
-            <p className="text-gray-600">
+            <p className="review-text">
               "The booking system was seamless, and the staff handled our
               requests promptly."
             </p>
           </div>
-          <div className="p-4 border rounded-lg shadow-sm">
-            <div className="flex items-center mb-2">
-              <div className="flex text-yellow-400">★★★★☆</div>
-              <span className="ml-2 font-semibold">Sarah M.</span>
+          <div className="review-card">
+            <div className="review-header">
+              <div className="stars">★★★★☆</div>
+              <span className="reviewer-name">Sarah M.</span>
             </div>
-            <p className="text-gray-600">
+            <p className="review-text">
               "Great experience overall, but could use more frequent updates on
               room availability."
             </p>
           </div>
-          <div className="p-4 border rounded-lg shadow-sm">
-            <div className="flex items-center mb-2">
-              <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold">Emily R.</span>
+          <div className="review-card">
+            <div className="review-header">
+              <div className="stars">★★★★★</div>
+              <span className="reviewer-name">Emily R.</span>
             </div>
-            <p className="text-gray-600">
+            <p className="review-text">
               "The admin portal made managing our group booking so easy.
               Excellent service!"
             </p>
@@ -130,9 +127,9 @@ function AdminDashboard() {
 
       <Suspense
         fallback={
-          <div className="d-flex justify-content-center align-items-center py-5">
-            <div className="spinner-border text-secondary" role="status" />
-            <span className="ms-3 text-muted">Loading content...</span>
+          <div className="loading-container">
+            <div className="spinner spinner-secondary" />
+            <span className="loading-text">Loading content...</span>
           </div>
         }
       >
