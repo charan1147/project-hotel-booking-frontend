@@ -58,7 +58,7 @@ function UserDashboard() {
             <img
               src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
               alt="Luxury Room"
-              className="w-full h-48 object-cover"
+              className="w-full h-32 object-cover"
             />
             <div className="p-4">
               <h3 className="font-semibold">Luxury Suite</h3>
@@ -71,7 +71,7 @@ function UserDashboard() {
             <img
               src="https://images.unsplash.com/photo-1578683014728-c73504a285f9"
               alt="Conference Room"
-              className="w-full h-48 object-cover"
+              className="w-full h-32 object-cover"
             />
             <div className="p-4">
               <h3 className="font-semibold">Conference Room</h3>
@@ -84,7 +84,7 @@ function UserDashboard() {
             <img
               src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
               alt="Lounge Area"
-              className="w-full h-48 object-cover"
+              className="w-full h-32 object-cover"
             />
             <div className="p-4">
               <h3 className="font-semibold">Lounge Area</h3>
