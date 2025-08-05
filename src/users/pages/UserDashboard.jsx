@@ -69,7 +69,7 @@ function UserDashboard() {
           </div>
           <div className="facility-card">
             <img
-              src="https://images.unsplash.com/photo-1578683014728-c73504a285f9"
+              src="https://plus.unsplash.com/premium_photo-1681487144031-d502ea9abefc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVldGluZyUyMHJvb218ZW58MHx8MHx8fDA%3D"
               alt="Conference Room"
               className="facility-image"
             />
