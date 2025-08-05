@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/useAuth";
+import "../../app.css"; // Import the custom CSS file
 
 function UserDashboard() {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ function UserDashboard() {
             <img
               src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
               alt="Luxury Room"
-              className="w-full h-32 object-cover"
+              className="facility-image"
             />
             <div className="p-4">
               <h3 className="font-semibold">Luxury Suite</h3>
@@ -71,7 +72,7 @@ function UserDashboard() {
             <img
               src="https://images.unsplash.com/photo-1578683014728-c73504a285f9"
               alt="Conference Room"
-              className="w-full h-32 object-cover"
+              className="facility-image"
             />
             <div className="p-4">
               <h3 className="font-semibold">Conference Room</h3>
@@ -84,7 +85,7 @@ function UserDashboard() {
             <img
               src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
               alt="Lounge Area"
-              className="w-full h-32 object-cover"
+              className="facility-image"
             />
             <div className="p-4">
               <h3 className="font-semibold">Lounge Area</h3>
@@ -100,7 +101,7 @@ function UserDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold"><Nihanth></Nihanth></span>
+              <span className="ml-2 font-semibold">John D.</span>
             </div>
             <p className="text-gray-600">
               "Amazing stay! The rooms were clean, and the staff was incredibly
@@ -110,7 +111,7 @@ function UserDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★☆</div>
-              <span className="ml-2 font-semibold">vamsi</span>
+              <span className="ml-2 font-semibold">Sarah M.</span>
             </div>
             <p className="text-gray-600">
               "Great facilities and convenient booking process. Will definitely
@@ -120,7 +121,7 @@ function UserDashboard() {
           <div className="p-4 border rounded-lg shadow-sm">
             <div className="flex items-center mb-2">
               <div className="flex text-yellow-400">★★★★★</div>
-              <span className="ml-2 font-semibold">surya</span>
+              <span className="ml-2 font-semibold">Emily R.</span>
             </div>
             <p className="text-gray-600">
               "The lounge area was so relaxing, and the service was top-notch.
