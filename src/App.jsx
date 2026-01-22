@@ -16,7 +16,7 @@ import Rooms from "./users/pages/Room";
 import Login from "./shared/Login";
 import Register from "./shared/Register";
 import ProtectedRoute from "./context/ProtectedRoute";
-import "./App.css"
+import "./App.css";
 
 function App() {
   const { isAuthenticated, user, initialized } = useContext(AuthContext);
@@ -52,6 +52,7 @@ function App() {
               )
             }
           />
+
           <Route
             path="/register"
             element={
@@ -68,14 +69,9 @@ function App() {
               )
             }
           />
-          <Route
-            path="/user/dashboard"
-            element={
-              <ProtectedRoute requiredRole="user">
-                <UserDashboard />
-              </ProtectedRoute>
-            }
-          />
+
+          <Route path="/user/dashboard" element={<UserDashboard />} />
+
           <Route
             path="/user/book-room"
             element={
@@ -84,6 +80,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/user/rooms"
             element={
@@ -92,6 +89,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/user/bookings"
             element={
@@ -100,6 +98,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/admin/dashboard"
             element={
@@ -108,6 +107,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/admin/dashboard/bookings"
             element={
@@ -116,6 +116,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/admin/dashboard/rooms"
             element={
@@ -124,22 +125,9 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/"
-            element={
-              isAuthenticated ? (
-                <Navigate
-                  to={
-                    user?.role === "admin"
-                      ? "/admin/dashboard"
-                      : "/user/dashboard"
-                  }
-                />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          />
+
+          <Route path="/" element={<Navigate to="/user/dashboard" />} />
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
