@@ -10,13 +10,9 @@ function RoomCard({ room }) {
           <br />
           <strong>Price:</strong> ${room.price}
           <br />
-          <strong>Description:</strong> {room.description}
-          <br />
           <strong>Status:</strong>{" "}
           <span
-            className={`badge ${
-              room.status === "available" ? "bg-success" : "bg-secondary"
-            }`}
+            className={`badge ${room.status === "available" ? "bg-success" : "bg-secondary"}`}
           >
             {room.status}
           </span>
@@ -24,7 +20,7 @@ function RoomCard({ room }) {
         {room.status === "available" && (
           <Link
             to={`/user/book-room?roomId=${room._id}`}
-            className="btn btn-primary mt-2"
+            className="btn btn-primary"
           >
             Book Now
           </Link>
