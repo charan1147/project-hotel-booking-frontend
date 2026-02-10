@@ -11,10 +11,10 @@ import Login from "./pages/shared/Login";
 import Register from "./pages/shared/Register";
 
 
-import UserDashboard from "./pages/user/Dashboard";
-import Rooms from "./pages/user/Rooms";
-import BookRoom from "./pages/user/BookRoom";
-import MyBookings from "./pages/user/MyBookings";
+import UserDashboard from "./pages/users/Dashboard";
+import Rooms from "./pages/users/Rooms";
+import BookRoom from "./pages/users/BookRoom";
+import MyBookings from "./pages/users/MyBookings";
 
 import AdminDashboard from "./pages/admin/Dashboard";
 import ManageRooms from "./pages/admin/ManageRooms";
