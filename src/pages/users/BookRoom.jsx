@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { AppContext } from "../../contexts/AppContext";
-import { toast } from "react-toastify";
 
 function BookRoom() {
   const { rooms, fetchRooms, createBooking } = useContext(AppContext);

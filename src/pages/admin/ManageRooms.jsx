@@ -25,7 +25,6 @@ function ManageRooms() {
     <div className="container py-4">
       <h2>Manage Rooms</h2>
 
-      {/* Create form */}
       <form onSubmit={handleCreate} className="mb-5">
         <input
           type="text"
