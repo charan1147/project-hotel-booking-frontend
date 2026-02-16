@@ -10,40 +10,41 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
-      api
-        .get("/api/auth/profile")
-        .then((res) => setUser(res.data))
-        .catch(() => localStorage.removeItem("token"))
-        .finally(() => setLoading(false));
-    } else {
+    if (!token) {
       setLoading(false);
+      return;
     }
+
+    api
+      .get("/api/auth/profile")
+      .then((res) => setUser(res.data.user))
+      .catch(() => localStorage.removeItem("token"))
+      .finally(() => setLoading(false));
   }, []);
 
-  const login = async (data) => {
+  const login = async (credentials) => {
     try {
-      const res = await api.post("/api/auth/login", data);
-      localStorage.setItem("token", res.data.token);
-      setUser(res.data.user);
-      toast.success("Logged in");
-      return true;
+      const { data } = await api.post("/api/auth/login", credentials);
+      localStorage.setItem("token", data.token);
+      setUser(data.user);
+      toast.success("Logged in successfully");
+      return data.user;
     } catch (err) {
       toast.error(err.response?.data?.message || "Login failed");
-      return false;
+      return null;
     }
   };
 
   const register = async (data) => {
     try {
-      const res = await api.post("/api/auth/register", data);
-      localStorage.setItem("token", res.data.token);
-      setUser(res.data.user);
-      toast.success("Registered");
-      return true;
+      const { data: resData } = await api.post("/api/auth/register", data);
+      localStorage.setItem("token", resData.token);
+      setUser(resData.user);
+      toast.success("Registered successfully");
+      return resData.user;
     } catch (err) {
       toast.error(err.response?.data?.message || "Registration failed");
-      return false;
+      return null;
     }
   };
 

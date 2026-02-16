@@ -7,9 +7,8 @@ import {
 import { AuthProvider } from "./contexts/AuthContext";
 import { AppProvider } from "./contexts/AppContext";
 
-import Login from "./pages/shared/Login";
-import Register from "./pages/shared/Register";
-
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 import UserDashboard from "./pages/users/Dashboard";
 import Rooms from "./pages/users/Rooms";
@@ -20,10 +19,7 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import ManageRooms from "./pages/admin/ManageRooms";
 import AllBookings from "./pages/admin/AllBookings";
 
-
-const Protected = ({ children, adminOnly = false }) => {
-  return children;
-};
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -34,61 +30,63 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
+            {/* User routes */}
             <Route
               path="/user/dashboard"
               element={
-                <Protected>
+                <ProtectedRoute>
                   <UserDashboard />
-                </Protected>
+                </ProtectedRoute>
               }
             />
             <Route
               path="/user/rooms"
               element={
-                <Protected>
+                <ProtectedRoute>
                   <Rooms />
-                </Protected>
+                </ProtectedRoute>
               }
             />
             <Route
               path="/user/book-room"
               element={
-                <Protected>
+                <ProtectedRoute>
                   <BookRoom />
-                </Protected>
+                </ProtectedRoute>
               }
             />
             <Route
               path="/user/bookings"
               element={
-                <Protected>
+                <ProtectedRoute>
                   <MyBookings />
-                </Protected>
+                </ProtectedRoute>
               }
             />
 
+            {/* Admin routes */}
             <Route
               path="/admin/dashboard"
               element={
-                <Protected adminOnly>
+                <ProtectedRoute adminOnly>
                   <AdminDashboard />
-                </Protected>
+                </ProtectedRoute>
               }
             />
             <Route
               path="/admin/rooms"
               element={
-                <Protected adminOnly>
+                <ProtectedRoute adminOnly>
                   <ManageRooms />
-                </Protected>
+                </ProtectedRoute>
               }
             />
             <Route
               path="/admin/bookings"
               element={
-                <Protected adminOnly>
+                <ProtectedRoute adminOnly>
                   <AllBookings />
-                </Protected>
+                </ProtectedRoute>
               }
             />
 

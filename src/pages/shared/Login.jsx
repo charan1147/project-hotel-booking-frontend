@@ -1,17 +1,18 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../../contexts/AppContext";
+import { AuthContext } from "../contexts/AuthContext";
 
-function Login() {
-  const { login } = useContext(AppContext);
+export default function Login() {
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login(form);
-    if (success)
-      navigate(user?.role === "admin" ? "/admin/dashboard" : "/user/dashboard");
+    const user = await login(form);
+    if (user) {
+      navigate(user.role === "admin" ? "/admin/dashboard" : "/user/dashboard");
+    }
   };
 
   return (
@@ -34,15 +35,13 @@ function Login() {
           className="form-control mb-3"
           required
         />
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary w-100">
           Login
         </button>
       </form>
-      <p className="mt-3">
+      <p className="mt-3 text-center">
         No account? <a href="/register">Register</a>
       </p>
     </div>
   );
 }
-
-export default Login;
