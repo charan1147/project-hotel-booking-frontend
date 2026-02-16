@@ -7,8 +7,8 @@ import {
 import { AuthProvider } from "./contexts/AuthContext";
 import { AppProvider } from "./contexts/AppContext";
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/shared/Login";
+import Register from "./pages/shared/Register";
 
 import UserDashboard from "./pages/users/Dashboard";
 import Rooms from "./pages/users/Rooms";
@@ -19,7 +19,7 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import ManageRooms from "./pages/admin/ManageRooms";
 import AllBookings from "./pages/admin/AllBookings";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/protectedRoutes";
 
 function App() {
   return (
