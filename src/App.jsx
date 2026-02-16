@@ -19,7 +19,7 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import ManageRooms from "./pages/admin/ManageRooms";
 import AllBookings from "./pages/admin/AllBookings";
 
-import ProtectedRoute from "./components/protectedRoutes";
+import ProtectedRoute from "./components/ProtectedRoutes";
 
 function App() {
   return (
