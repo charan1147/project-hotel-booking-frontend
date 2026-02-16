@@ -30,7 +30,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            {/* User routes */}
             <Route
               path="/user/dashboard"
               element={
@@ -63,8 +62,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
-            {/* Admin routes */}
             <Route
               path="/admin/dashboard"
               element={
