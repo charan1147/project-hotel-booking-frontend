@@ -62,7 +62,7 @@ export default function UserDashboard() {
           <div className="col-md-4">
             <div className="card border-0 shadow overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1578683015146-b644c1c9c678?w=800&auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&auto=format&fit=crop&q=80"
                 alt="Luxury ocean-view room"
                 className="card-img-top"
                 style={{ height: "280px", objectFit: "cover" }}
@@ -73,7 +73,7 @@ export default function UserDashboard() {
           <div className="col-md-4">
             <div className="card border-0 shadow overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1611892440504-42a792a0327f?w=800&auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&auto=format&fit=crop&q=80"
                 alt="Modern elegant suite"
                 className="card-img-top"
                 style={{ height: "280px", objectFit: "cover" }}

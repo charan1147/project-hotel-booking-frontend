@@ -69,7 +69,7 @@ export default function AdminDashboard() {
           <div className="col-md-4">
             <div className="card border-0 shadow overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1611892440504-42a792a0327f?w=800&auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&auto=format&fit=crop&q=80"
                 alt="Luxury hotel suite interior"
                 className="card-img-top"
                 style={{ height: "280px", objectFit: "cover" }}
