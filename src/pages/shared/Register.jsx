@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../../contexts/AppContext";
+import {AuthContext} from "../../contexts/AuthContext"
 
 function Register() {
-  const { register } = useContext(AppContext);
+  const { register } = useContext(AuthContext);
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
 
